@@ -9,6 +9,13 @@ This project provides a devcontainer template for Ansible, ready to be used for 
 
 When you are using VS Code the following extension is required to enable Dev Container Support: [ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
+## Quick Start
+
+- Clone repository
+- Open in VS Code
+- Start Dev Container
+- Enjoy !
+
 ## Cross-Platform
 
 This is a cross-platform development container project, which means it is designed to work out-of-the-box on the following platforms.
