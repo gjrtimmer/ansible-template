@@ -75,3 +75,7 @@ ansible-galaxy collection install --force --collections-path .ansible/collection
 ```shell
 ansible-galaxy role install --force --roles-path .ansible/roles -r requirements.yml
 ```
+
+## Ansible Reference Information
+
+If you require something more complex please see the following [Ansible Documentation](https://docs.ansible.com/ansible/latest/tips_tricks/sample_setup.html) about sample project setups and modify this repository after cloning to your own requirements.
