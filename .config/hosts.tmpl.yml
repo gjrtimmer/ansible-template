@@ -1,0 +1,9 @@
+local: # <-- Name of the group
+  hosts:
+    localhost:
+
+group_name: # <-- Name of the group
+  hosts: # <-- Mandatory key
+    example_hostname: # Hostname of the server
+      ansible_host: 192.168.0.10 # IP address of the server, if you want to use a different IP address, you can do it here
+      extra_variable_foo: bar # Example extra variable for a host, when having a lot of variables for a host use host_vars

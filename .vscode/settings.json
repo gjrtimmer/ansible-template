@@ -1,0 +1,47 @@
+{
+  "explorer.compactFolders": false,
+
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": false,
+  "files.eol": "\n",
+
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "FiraCode-Retina, 'Fira Code Retina', 'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash",
+      "args": ["-l"]
+    }
+  },
+  "files.associations": {
+    "**/defaults/**/*.yml": "ansible",
+    "**/group_vars/**/*": "ansible",
+    "**/host_vars/**/*": "ansible",
+    "**/vars/**/*.yml": "ansible",
+    "**/tasks/**/*.yml": "ansible",
+    "**/handlers/*.yml": "ansible",
+    "**/meta/*.yml": "ansible",
+    "**/roles/**/*.yml": "ansible",
+    "**/playbooks/**/*.yml": "ansible",
+    "**/ansible/**/hosts": "properties",
+    "**/ansible/**/inventory": "properties",
+    "ansible.cfg": "properties"
+  },
+  "[ansible]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  "prettier.requireConfig": false,
+  "ansible.python.interpreterPath": "/usr/local/bin/python3",
+  "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint"
+}
