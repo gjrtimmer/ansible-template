@@ -13,11 +13,11 @@ When you are using VS Code the following extension is required to enable Dev Con
 
 This is a cross-platform development container project, which means it is designed to work out-of-the-box on the following platforms.
 
-| Platform     | Tested            |
-| ------------ | ----------------- |
-| Linux        | :white_check_mark |
-| MacOS/Darwin | :white_check_mark |
-| Windows      | :white_check_mark |
+| Platform       | Tested             |
+| -------------- | ------------------ |
+| Darwin (MacOS) | :white_check_mark: |
+| Linux          | :white_check_mark: |
+| Windows        | :white_check_mark: |
 
 ## Restart/Rebuild Container
 
