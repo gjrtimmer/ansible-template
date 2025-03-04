@@ -58,6 +58,9 @@ Use the following command to set the Ansible Vault Password.
 echo 'password' > ~/.ansible_vault_pass
 ```
 
+If you want to secure a value within this project after you have set the password, it is as simple as selecting the value, then opening the VS Code Command Pallet with `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Linux/Windows) and selecting `Ansible Vault: Encrypt/Decrypt via 'ansible-vault'`. You can use this option
+to either decrypt or encrypt.
+
 ## Ansible Galaxy
 
 Ansible Galaxy collections and/or roles can be added into the `requirements.yml` configuration. After updating restarting the container through VSCode is enough to trigger the installation of the requested collections/roles. The collections/roles are installed into the project folder at `.ansible`. The provided Ansible configuration (`ansible.cfg`) is configured to make use of these directories. The installation commands are provided by the `.devcontainer/scripts/postStartCommand.sh` script.
