@@ -38,6 +38,18 @@ restart_services() {
     start_services
 }
 
+destroy_services() {
+    stop_services
+    docker system prune --all --volumes -f
+    rm -rf /work/.playground
+    echo "Playground Destroyed"
+}
+
+reset_services() {
+    destroy_services
+    start_services
+}
+
 # Main script
 main() {
     clone_repo
@@ -53,8 +65,14 @@ main() {
         restart)
             restart_services
             ;;
+        reset)
+            reset_services
+            ;;
+        destroy)
+            destroy_services
+            ;;
         *)
-            echo "Usage: $0 {start|stop|restart}"
+            echo "Usage: $0 {start|stop|restart|reset|destroy}"
             echo
             echo "The following additional commands have been added"
             echo "  ansible-playground | ansible-pg"
