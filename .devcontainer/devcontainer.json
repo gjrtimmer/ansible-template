@@ -50,7 +50,7 @@
     }
   },
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/work/.devcontainer/bin"
+    "PATH": "${containerEnv:PATH}:/work/.bin"
   }
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.

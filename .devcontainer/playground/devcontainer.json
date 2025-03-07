@@ -63,7 +63,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/work/.devcontainer/bin",
+    "PATH": "${containerEnv:PATH}:/work/.bin",
     "ANSIBLE_HOST_KEY_CHECKING": "False"
   },
   "remoteUser": "vscode"
