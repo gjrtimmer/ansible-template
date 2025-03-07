@@ -19,6 +19,8 @@ This project provides a devcontainer template for Ansible, ready to be used for 
   - [Start Playground](#start-playground)
   - [Stop Playground](#stop-playground)
   - [Restart Playground](#restart-playground)
+  - [Destroy Playground](#destroy-playground)
+  - [Reset Playground](#reset-playground)
   - [Security](#security)
   - [hosts](#hosts)
   - [Ansible Playground Commands](#ansible-playground-commands)
@@ -149,6 +151,22 @@ To restart the playground run the following command.
 
 ```shell
 playground restart
+```
+
+### Destroy Playground
+
+This command will stop and completely destroy the playground, this will also wipe all docker data.
+
+```shell
+playground destroy
+```
+
+### Reset Playground
+
+This command will stop, destroy, wipe docker and then restart the playground completely fresh.
+
+```shell
+playground reset
 ```
 
 ### Security
