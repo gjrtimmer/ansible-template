@@ -40,6 +40,9 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "[markdown]": {
+    "editor.wordWrap": "off"
+  },
 
   "prettier.requireConfig": false,
   "ansible.python.interpreterPath": "/usr/local/bin/python3",
