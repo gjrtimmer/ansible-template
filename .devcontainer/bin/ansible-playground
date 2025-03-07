@@ -1,4 +1,0 @@
-#!/usr/bin/env
-# shellcheck shell=bash
-
-ansible -i /work/.config/hosts.playground.yml $@
