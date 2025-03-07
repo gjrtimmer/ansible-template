@@ -15,6 +15,7 @@ This project provides a devcontainer template for Ansible, ready to be used for 
   - [Roles](#roles)
 - [Ansible Reference Information](#ansible-reference-information)
 - [Playground](#playground)
+  - [Switch Container](#switch-container)
   - [Start Playground](#start-playground)
   - [Stop Playground](#stop-playground)
   - [Restart Playground](#restart-playground)
@@ -118,6 +119,13 @@ The playground can be controlled through the shell command `playground`. It has 
 When the playground is started the first time it will clone the `ansible-playground-docker` repository from GitHub and install it in the repository in the `.playground` directory. On the initial clone it will ask if you want to load the playground inventory.
 
 Loading the playground inventory is not mandatory. You can interact with the playground nodes without loading the inventory through the provided playground inventory in the `.config` directory.
+
+### Switch Container
+
+You can switch devcontainers between the `Ansible` and `Playground` devcontainer with the `Switch Container` command from the `Command Pallete` in VS Code.
+In order to switch open the command pallete with `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Linux/Windows) and choose the option `Switch Container`.
+
+![Switch Container](./.docs/switch-container.png)
 
 ### Start Playground
 
