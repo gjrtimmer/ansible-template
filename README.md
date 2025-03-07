@@ -38,7 +38,7 @@ When you are using VS Code the following extension is required to enable Dev Con
 
 - Clone repository
 - Open in VS Code
-- Start Dev Container
+- Start `Ansible` Container
 - Enjoy !
 
 ## Cross-Platform
