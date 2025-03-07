@@ -3,11 +3,12 @@
 
 REPO_URL="https://github.com/gjrtimmer/ansible-playground-docker.git"
 CLONE_DIR="/work/.playground"
+CWD=$(pwd)
 
 # Function to clone the repository
 clone_repo() {
     if [ ! -d "${CLONE_DIR}" ]; then
-        git clone "$REPO_URL" "${CLONE_DIR}"
+        git clone "${REPO_URL}" "${CLONE_DIR}"
 
         if [ ! -f /work/hosts.yml ] && [ ! -f /work/hosts ]; then
             read -rp "Install Playground Inventory ? [y/n] : "
@@ -24,52 +25,69 @@ clone_repo() {
 
 # Function to start the docker-compose services
 start_services() {
+    echo "Starting Playground"
     docker-compose up -d
 }
 
 # Function to stop the docker-compose services
 stop_services() {
+    echo "Stopping Playground"
     docker-compose down
 }
 
 # Function to restart the docker-compose services
 restart_services() {
+    echo "Restarting Playground"
     stop_services
     start_services
 }
 
 destroy_services() {
-    stop_services
+    echo "Destroying Playground"
+    if [ -d /work/.playground ]; then
+        cd "${CLONE_DIR}" || exit 1
+        stop_services
+    fi
+    cd /work || exit 1
     docker system prune --all --volumes -f
     rm -rf /work/.playground
     echo "Playground Destroyed"
 }
 
 reset_services() {
+    echo "Resetting Playground"
     destroy_services
-    start_services
+    $0 start
 }
 
 # Main script
 main() {
-    clone_repo
-    cd "${CLONE_DIR}" || exit 1
-
     case "$1" in
-        start)
-            start_services
+        start|stop|restart)
+            clone_repo
+            cd "${CLONE_DIR}" || exit 1
+            case "$1" in
+                start)
+                    start_services
+                    ;;
+                stop)
+                    stop_services
+                    ;;
+                restart)
+                    restart_services
+                    ;;
+            esac
             ;;
-        stop)
-            stop_services
-            ;;
-        restart)
-            restart_services
-            ;;
-        reset)
-            reset_services
-            ;;
-        destroy)
-            destroy_services
+        reset|destroy)
+            cd /work || exit 1
+            case "$1" in
+                reset)
+                    reset_services
+                    ;;
+                destroy)
+                    destroy_services
+                    ;;
+            esac
             ;;
         *)
             echo "Usage: $0 {start|stop|restart|reset|destroy}"
@@ -87,3 +105,6 @@ main() {
 }
 
 main "$@"
+
+# Return Current working directory
+cd "${CWD}" || exit 1
