@@ -1,9 +1,10 @@
 # Ansible Template
 
-This project provides a devcontainer template for Ansible, ready to be used for yhour next Ansible project.
+This project provides a devcontainer template for Ansible, ready to be used for your next Ansible project.
 
 - [Requirements](#requirements)
 - [Quick Start](#quick-start)
+- [Structure](#structure)
 - [Cross-Platform](#cross-platform)
 - [Restart/Rebuild Container](#restartrebuild-container)
 - [Working Directory](#working-directory)
@@ -41,6 +42,29 @@ When you are using VS Code the following extension is required to enable Dev Con
 - Start `Ansible` Container
 - Enjoy !
 
+## Structure
+
+This template project has the following structure.
+
+> **.bin**
+>
+> Any script here can be used directory in the devcontainer shell when it has the executable bit set (chmod +x).
+> Not recommened to remove directory because it is configured in the devcontainers
+
+| Directory     | Description                                    |
+| ------------- | ---------------------------------------------- |
+| .bin          | Here you can place scripts for your repository |
+| .config       | This directory holds inventory templates       |
+| .devcontainer | Holds all the devcontainer configuraiton       |
+| .docs         | Holds additional documentation                 |
+| .github       | Holds configuration for GitHub                 |
+| .gitlab       | Holds configuration for GitLab                 |
+| .vscode       | Holds VS Code editor configuration             |
+| group_vars    | Ansible directory                              |
+| host_vars     | Ansible directory                              |
+| playbooks     | Ansible directory                              |
+| roles         | Ansibel directory                              |
+
 ## Cross-Platform
 
 This is a cross-platform development container project, which means it is designed to work out-of-the-box on the following platforms.
@@ -53,7 +77,7 @@ This is a cross-platform development container project, which means it is design
 
 ## Restart/Rebuild Container
 
-The devcontainer can be restarted by opening the Command Pallete of VS Code with CMD + SHIFT + P (MacOS) or CTRL + SHIFT + P (Windows/Linux) and then choose the option `Dev Containers: Rebuild Container`.
+The devcontainer can be restarted by opening the Command Pallete of VS Code with `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Windows/Linux) and then choose the option `Dev Containers: Rebuild Container`.
 
 ## Working Directory
 
