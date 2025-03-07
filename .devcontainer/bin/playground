@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# shellcheck shell=bash
+
+REPO_URL="https://github.com/gjrtimmer/ansible-playground-docker.git"
+CLONE_DIR="/work/.playground"
+
+# Function to clone the repository
+clone_repo() {
+    if [ ! -d "${CLONE_DIR}" ]; then
+        git clone "$REPO_URL" "${CLONE_DIR}"
+
+        if [ ! -f /work/hosts.yml ] && [ ! -f /work/hosts ]; then
+            read -rp "Install Playground Inventory ? [y/n] : "
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                echo "Installing Playground Inventory"
+                cp /work/.config/hosts.playground.yml /work/hosts.yml
+            fi
+        fi
+    else
+        echo "Updating Playground"
+        git -C "${CLONE_DIR}" pull
+    fi
+}
+
+# Function to start the docker-compose services
+start_services() {
+    docker-compose up -d
+}
+
+# Function to stop the docker-compose services
+stop_services() {
+    docker-compose down
+}
+
+# Function to restart the docker-compose services
+restart_services() {
+    stop_services
+    start_services
+}
+
+# Main script
+main() {
+    clone_repo
+    cd "${CLONE_DIR}" || exit 1
+
+    case "$1" in
+        start)
+            start_services
+            ;;
+        stop)
+            stop_services
+            ;;
+        restart)
+            restart_services
+            ;;
+        *)
+            echo "Usage: $0 {start|stop|restart}"
+            echo
+            echo "The following additional commands have been added"
+            echo "  ansible-playground | ansible-pg"
+            echo "    Redirect to ansible with playground inventory"
+            echo
+            echo "  ansible-playground-playbook | ansible-pp"
+            echo "    Redirec to ansible-playbook with playground inventory"
+            echo
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
