@@ -10,12 +10,11 @@ clone_repo() {
     if [ ! -d "${CLONE_DIR}" ]; then
         git clone "${REPO_URL}" "${CLONE_DIR}"
 
-        if [ ! -f /work/hosts.yml ] && [ ! -f /work/hosts ]; then
-            read -rp "Install Playground Inventory ? [y/n] : "
-            if [[ $REPLY =~ ^[Yy]$ ]]; then
-                echo "Installing Playground Inventory"
-                cp /work/.config/hosts.playground.yml /work/hosts.yml
-            fi
+        printf '\n\n'
+        read -rp "Install Playground Inventory ? [y/n] : "
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            echo "Installing Playground Inventory"
+            cp /work/.config/hosts.playground.yml /work/hosts.yml
         fi
     else
         echo "Updating Playground"
