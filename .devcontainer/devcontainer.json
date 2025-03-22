@@ -14,7 +14,12 @@
     "--network=host",
 
     // Disable SELinux
-    "--security-opt=label=disable"
+    "--security-opt=label=disable",
+
+    // Privileged
+    // We are running this container in privileged mode
+    // we are required to do this for Windows environments and mount points of .ssh
+    "--privileged"
 
     // Disables Seccomp (System Call Filtering)
     // removes restrictions on system calls the container can use
@@ -50,9 +55,12 @@
       ]
     }
   },
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/work/.bin"
-  }
+  "containerEnv": {
+    "ANSIBLE_COLLECTIONS_PATH": "/work/.ansible/collections:/usr/share/ansible/collections",
+    "ANSIBLE_ROLES_PATH": "./roles:/work/.ansible/roles:/usr/share/ansible/roles"
+  },
+  "remoteUser": "vscode",
+  "containerUser": "vscode"
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
