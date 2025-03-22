@@ -25,7 +25,7 @@ clone_repo() {
 # Function to start the docker-compose services
 start_services() {
     echo "Starting Playground"
-    docker-compose up -d
+    docker-compose up -d --force-recreate
 }
 
 # Function to stop the docker-compose services
