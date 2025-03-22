@@ -31,7 +31,11 @@
     "**/playbooks/**/*.yml": "ansible",
     "**/ansible/**/hosts": "properties",
     "**/ansible/**/inventory": "properties",
-    "ansible.cfg": "properties"
+    "ansible.cfg": "properties",
+    "ansible.yml": "yaml",
+    "group_vars/*.md": "markdown",
+    "host_vars/*.md": "markdown",
+    "docs/*.md": "markdown"
   },
   "[ansible]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -45,7 +49,7 @@
   },
 
   "prettier.requireConfig": false,
-  "ansible.python.interpreterPath": "/usr/local/bin/python3",
-  "ansible.validation.lint.path": "/usr/local/py-utils/bin/ansible-lint",
-  "markdown.extension.toc.levels": "2..6"
+  "ansible.python.interpreterPath": "/usr/bin/python3",
+  "markdown.extension.toc.levels": "2..6",
+  "yaml.customTags": ["!vault scalar"]
 }
